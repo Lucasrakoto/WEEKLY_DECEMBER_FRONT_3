@@ -14,10 +14,10 @@
             <img src="./images/logo (6).png" alt="" />
           </figure>
           <ul class="menu">
-            <li class="menu__item"><a href="#">Episodes</a></li>
-            <li class="menu__item"><a href="#">About</a></li>
+            <li class="menu__item"><a href="#__episode">Episodes</a></li>
+            <li class="menu__item"><a href="#__about">About</a></li>
             <li class="menu__item">
-              <a href="#">More <span>></span></a>
+              <a href="#__testimonials">More <span>></span></a>
             </li>
           </ul>
         </div>
@@ -27,7 +27,9 @@
         </div>
       </nav>
       <main class="main">
-        <h3 class="main__title">Your Daily Podcast</h3>
+        <h3 class="main__title">
+          Your Daily <span class="textcolored">Podcast</span>
+        </h3>
         <p class="paragraphe">
           We cover all kinds of categories and a weekly special guest.
         </p>
@@ -40,7 +42,7 @@
         </figure>
       </main>
 
-      <ul class="cover">
+      <ul class="cover" id="__episode">
         <li class="cover__item">
           <img src="./images/cover.png" alt="" />
         </li>
@@ -75,7 +77,7 @@
       </figure>
     </header>
     <!-- section about  -->
-    <section class="about">
+    <section id="__about" class="about">
       <h1 class="title">Talk. Listen. Get inspired by every minute of it.</h1>
       <div class="card">
         <div class="card__item">
@@ -120,7 +122,7 @@
       </figure>
     </section>
     <!-- section testimonials  -->
-    <section class="testimonials">
+    <section id="__testimonials" class="testimonials">
       <h1 class="title">
         What our listeners say
         <figure><img src="./images/Sparkle.png" alt="" /></figure>
@@ -183,8 +185,10 @@
           </li>
         </ul>
         <div class="slide__btn">
-          <button><img src="./images/Arrow - Left Circle.png" alt="" /></button>
-          <button>
+          <button class="prev">
+            <img src="./images/Arrow - Left Circle.png" alt="" />
+          </button>
+          <button class="next">
             <img src="./images/Arrow - Right Circle.png" alt="" />
           </button>
         </div>
@@ -194,7 +198,7 @@
       </figure>
     </section>
     <!-- section features  -->
-    <section class="features">
+    <section id="__features" class="features">
       <h1 class="title">
         Membership benefits
         <figure><img src="./images/Vector (1).png" alt="" /></figure>
@@ -257,7 +261,7 @@
     </section>
 
     <!-- content section  -->
-    <section class="content">
+    <section id="__content" class="content">
       <h1 class="title">Recent Episodes</h1>
       <h3 class="h3__title">Available on your favorite platform</h3>
       <ul class="content__card">
@@ -437,7 +441,7 @@
     </section>
 
     <!-- section pricing  -->
-    <section class="pricing">
+    <section id="__pricing" class="pricing">
       <h1 class="title">
         Become our sponsor
         <figure>
@@ -529,7 +533,7 @@
       </figure>
     </section>
     <!-- section CTA  -->
-    <section class="cta">
+    <section id="__cta" class="cta">
       <h1 class="title">Article and News</h1>
       <h3 class="h3__title">News, tips, tricks and more</h3>
       <ul class="cta__card">
@@ -591,7 +595,7 @@
       </figure>
     </section>
     <!-- section blog  -->
-    <section class="blog">
+    <section id="__blog" class="blog">
       <h6>BETA</h6>
       <h1 class="title">Available now Pod of Cast App</h1>
       <h3 class="h3__title">We just launched our podcast app!</h3>
@@ -641,14 +645,16 @@
           </ul>
         </div>
         <ul class="col2">
-          <li><a href="#">About</a></li>
-          <li><a href="#" class="textcolored">Testimonials</a></li>
-          <li><a href="#">Features</a></li>
+          <li><a href="#__about">About</a></li>
+          <li>
+            <a href="#__testimonials" class="textcolored">Testimonials</a>
+          </li>
+          <li><a href="#__features">Features</a></li>
         </ul>
         <ul class="col3">
-          <li><a href="#" class="textcolored">Episodes</a></li>
-          <li><a href="#">Pricing</a></li>
-          <li><a href="#">Blog</a></li>
+          <li><a href="#__content" class="textcolored">Episodes</a></li>
+          <li><a href="#__pricing">Pricing</a></li>
+          <li><a href="#__blog">Blog</a></li>
         </ul>
         <div class="col4">
           <h6>Listen to episodes on your fav platform:</h6>
@@ -673,5 +679,6 @@
         <h6><span>Terms</span><span class="marginspan">Privacy</span></h6>
       </div>
     </footer>
+    <script src="./main.js"></script>
   </body>
 </html>

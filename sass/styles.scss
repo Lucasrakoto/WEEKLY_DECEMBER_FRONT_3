@@ -27,14 +27,16 @@ $breakpoints: (
 
 /*policen'azy*/
 @font-face {
-  font-family: Cardo;
-  src: url("../assets/font/Cardo/Cardo-Regular.ttf") format("truetype");
+  font-family: Montserrat Alternates;
+  src: url("../font/Montserrat_Alternates/MontserratAlternates-Regular.ttf")
+    format("truetype");
 }
 
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  scroll-behavior: smooth;
 }
 body {
   width: 100%;
@@ -42,6 +44,15 @@ body {
   display: flex;
   flex-direction: column;
   overflow-x: hidden;
+  font-family: Montserrat Alternates;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: Montserrat Alternates;
 }
 .btn {
   padding: 24px 48px;
@@ -52,6 +63,11 @@ body {
   font-weight: 700;
   color: #fff;
   box-shadow: 5px 5px 0px rgba(0, 0, 0, 0.25);
+  font-family: Montserrat Alternates;
+  transition: all 0.3s ease-in-out;
+  &:hover {
+    transform: scale(1.1);
+  }
   &__nav--bgWhite {
     padding: 12px 24px;
     box-shadow: none;
@@ -66,7 +82,7 @@ body {
 }
 .title {
   width: 70%;
-  font-family: serif;
+  font-family: Montserrat Alternates;
   font-size: 60px;
   font-weight: 700;
   line-height: 70px;
@@ -89,6 +105,7 @@ body {
   font-weight: 500;
   line-height: 18px;
   color: rgba(77, 77, 77, 1);
+  font-family: Montserrat Alternates;
   @include mobile() {
     font-size: 14px;
   }
@@ -108,6 +125,7 @@ body {
   font-size: 22px;
   line-height: 36px;
   text-align: center;
+  font-family: Montserrat Alternates;
   @include tablette {
     font-size: 18px;
     line-height: 28px;
@@ -156,11 +174,18 @@ header {
       display: flex;
       align-items: center;
       gap: 60px;
+      li {
+        transition: all 0.3s ease-in-out;
+        &:hover {
+          transform: scale(1.1);
+        }
+      }
       a {
         text-decoration: none;
         color: $text__color;
         font-size: 16px;
         font-weight: 700;
+
         span {
           display: inline-block;
           transform: rotate(90deg);
@@ -191,12 +216,15 @@ header {
     padding: 50px 0 10px;
     position: relative;
     &__title {
-      font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
+      font-family: Montserrat Alternates;
       font-size: 90px;
       font-weight: 700;
       line-height: 90px;
       text-align: center;
       width: 50%;
+      .textcolored {
+        color: rgba(205, 70, 49, 1);
+      }
       @include tablette {
         font-size: 60px;
         line-height: 70px;
@@ -426,7 +454,7 @@ header {
     margin: 100px 0 0;
     padding-left: 10%;
     list-style: none;
-    // border: 2px solid red;
+    // overflow-x: scroll;
 
     &__btn {
       margin: 60px 0 0;
@@ -441,6 +469,9 @@ header {
     display: flex;
     justify-content: space-between;
     gap: 30px;
+    // border: 2px solid red;
+    // transform: $--scrollPage;
+
     &--item {
       background: $bg__color;
       padding: 40px;
@@ -618,6 +649,10 @@ header {
       color: rgba(77, 77, 77, 1);
       border: 1px solid rgba(77, 77, 77, 1);
       border-radius: 4px;
+      transition: all 0.3s ease-in-out;
+      &:hover {
+        transform: scale(1.1);
+      }
     }
   }
   .right__content {
@@ -813,6 +848,10 @@ header {
             color: rgba(77, 77, 77, 1);
             border: 1px solid rgba(77, 77, 77, 1);
             border-radius: 4px;
+            transition: all 0.3s ease-in-out;
+            &:hover {
+              transform: scale(1.1);
+            }
           }
         }
       }
