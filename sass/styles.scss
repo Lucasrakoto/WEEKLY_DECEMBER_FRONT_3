@@ -2,6 +2,35 @@ $color__primary: #f7ede8;
 $color__secondary: #edf3f7;
 $bg__color: #fff;
 $text__color: #000;
+
+/*responsiven'azy*/
+$breakpoints: (
+  mobile: 720px,
+  tablette: 900px,
+  mac: 1080px,
+);
+@mixin mobile {
+  @media screen and (max-width: map-get($breakpoints,mobile)) {
+    @content;
+  }
+}
+@mixin tablette {
+  @media screen and (max-width: map-get($breakpoints,tablette)) {
+    @content;
+  }
+}
+@mixin mac {
+  @media screen and (max-width: map-get($breakpoints,mac)) {
+    @content;
+  }
+}
+
+/*policen'azy*/
+@font-face {
+  font-family: Cardo;
+  src: url("../assets/font/Cardo/Cardo-Regular.ttf") format("truetype");
+}
+
 * {
   margin: 0;
   padding: 0;
@@ -43,12 +72,26 @@ body {
   line-height: 70px;
   text-align: center;
   margin: auto;
+  @include mac {
+    width: 100%;
+  }
+  @include tablette {
+    font-size: 40px;
+    line-height: 50px;
+  }
+  @include mobile() {
+    font-size: 28px;
+    line-height: 32px;
+  }
 }
 .paragraphe {
   font-size: 16px;
   font-weight: 500;
   line-height: 18px;
   color: rgba(77, 77, 77, 1);
+  @include mobile() {
+    font-size: 14px;
+  }
 }
 .vector__bottom {
   position: absolute;
@@ -65,6 +108,14 @@ body {
   font-size: 22px;
   line-height: 36px;
   text-align: center;
+  @include tablette {
+    font-size: 18px;
+    line-height: 28px;
+  }
+  @include mobile() {
+    font-size: 16px;
+    line-height: 22px;
+  }
 }
 header {
   background: $color__primary;
@@ -76,12 +127,22 @@ header {
     display: flex;
     justify-content: space-between;
     margin: 30px 10%;
+    // border: 2px solid red;
+    @include tablette {
+      flex-direction: column;
+      align-items: center;
+      gap: 30px;
+    }
     &__left {
       display: flex;
       align-items: center;
       // width: 30%;
       justify-content: space-between;
       gap: 60px;
+      @include mobile() {
+        flex-direction: column;
+        gap: 10px;
+      }
     }
     .logo {
       width: 70px;
@@ -112,6 +173,13 @@ header {
       width: 40%;
       justify-content: flex-end;
       gap: 30px;
+      @include tablette {
+        width: 100%;
+        justify-content: center;
+      }
+      @include mobile() {
+        display: none;
+      }
     }
   }
   .main {
@@ -129,10 +197,21 @@ header {
       line-height: 90px;
       text-align: center;
       width: 50%;
+      @include tablette {
+        font-size: 60px;
+        line-height: 70px;
+      }
+      @include mobile() {
+        font-size: 40px;
+        line-height: 42px;
+      }
     }
     .paragraphe {
       text-align: center;
       width: 20%;
+      @include tablette {
+        width: 80%;
+      }
     }
     .vector__left {
       position: absolute;
@@ -171,8 +250,12 @@ header {
       width: 100%;
       transition: transform 0.2s ease-in-out;
       animation: moov 10s alternate infinite;
+
       img {
         width: 100%;
+        @include tablette {
+          width: 80%;
+        }
       }
       &:hover {
         transform: scale(1.08);
@@ -200,6 +283,16 @@ header {
       justify-content: space-between;
       align-items: center;
       gap: 30px;
+      // border: 2px solid red;
+      @include tablette {
+        width: 100%;
+        gap: 10px;
+      }
+      @include mobile {
+        width: 100%;
+        gap: 10px;
+        flex-direction: column;
+      }
     }
   }
 }
@@ -214,6 +307,10 @@ header {
     align-items: center;
     gap: 30px;
     margin: 60px auto;
+    // border: 2px solid red;
+    @include mobile() {
+      flex-direction: column;
+    }
     &__item {
       width: 40%;
       display: flex;
@@ -228,6 +325,9 @@ header {
       .paragraphe {
         text-align: center;
         width: 80%;
+        @include mobile() {
+          width: 100%;
+        }
       }
     }
   }
@@ -247,6 +347,11 @@ header {
       line-height: 52px;
       text-align: center;
       width: 50%;
+      @include tablette {
+        width: 80%;
+        font-size: 32px;
+        line-height: 40px;
+      }
     }
     ul {
       list-style: none;
@@ -271,6 +376,9 @@ header {
       img {
         width: 100%;
       }
+      @include mobile() {
+        left: -30%;
+      }
     }
     &__vector--right {
       position: absolute;
@@ -279,6 +387,10 @@ header {
       width: max-content;
       img {
         width: 100%;
+      }
+      @include mobile() {
+        top: -20%;
+        right: -10%;
       }
     }
   }
@@ -301,6 +413,10 @@ header {
       position: absolute;
       top: -100%;
       left: -20%;
+      @include mobile() {
+        top: -300%;
+        left: -30%;
+      }
     }
   }
 
@@ -331,6 +447,11 @@ header {
       width: 570px;
       height: auto;
       border-radius: 8px;
+      @include mobile() {
+        width: 300px;
+        display: flex;
+        flex-direction: column;
+      }
       ul {
         width: 100%;
         display: flex;
@@ -338,6 +459,9 @@ header {
         align-items: center;
         justify-content: flex-start;
         margin: 30px 0 0;
+        @include mobile() {
+          flex-direction: column;
+        }
         li {
           display: flex;
           justify-content: space-between;
@@ -373,19 +497,26 @@ header {
       img {
         width: 100%;
       }
+      @include mobile() {
+        top: -200%;
+      }
     }
   }
   &__list {
-    margin: 0 10%;
+    margin: 60px 10%;
     list-style: none;
     display: flex;
     flex-wrap: wrap;
     align-items: center;
     justify-content: center;
-    gap: 30px;
-    margin: 60px 0;
+    gap: 10px;
+    // margin: 60px 0;
+    // border: 2px solid red;
+
     &__item {
-      width: 400px;
+      // border: 2px solid red;
+      padding: 10px;
+      width: 350px;
       display: flex;
       flex-direction: column;
       align-items: center;
@@ -398,6 +529,9 @@ header {
   }
   .vector__bottom {
     bottom: -10%;
+    @include mac {
+      bottom: -6%;
+    }
   }
 }
 // content section
@@ -422,7 +556,7 @@ header {
     position: relative;
     &--item {
       width: 45%;
-      border: 2px solid green;
+      // border: 2px solid green;
       padding: 16px;
       background: $bg__color;
       border: 2px solid #000;
@@ -437,11 +571,22 @@ header {
           }
         }
       }
+      @include tablette {
+        width: 100%;
+      }
     }
     .vector__right {
       position: absolute;
-      top: -20%;
-      right: -8%;
+      top: -25%;
+      right: -10%;
+      @include tablette {
+        top: -10%;
+        right: -25%;
+      }
+      @include mobile() {
+        top: -6%;
+        right: -40%;
+      }
     }
   }
   .card__section__top {
@@ -461,10 +606,9 @@ header {
     justify-content: space-between;
     align-items: center;
     margin: 10px 0 0;
-    // gap: 10px;
+    // border: 2px solid red;
   }
   .content__card__btn {
-    // border: 2px solid red;
     display: flex;
     align-items: center;
     gap: 10px;
@@ -488,6 +632,11 @@ header {
       justify-content: center;
     }
   }
+  .vector__bottom {
+    @include tablette {
+      bottom: -4%;
+    }
+  }
 }
 // secetion pricing
 .pricing {
@@ -504,6 +653,10 @@ header {
       position: absolute;
       top: -100%;
       left: -15%;
+      @include mobile() {
+        top: -200%;
+        left: -40%;
+      }
     }
   }
   &__list {
@@ -529,14 +682,22 @@ header {
       justify-content: flex-start;
       gap: 10px;
       background: $bg__color;
+      @include mac {
+        width: 50%;
+      }
+      @include tablette {
+        width: 100%;
+      }
       h2 {
         font-size: 36px;
         font-weight: 700;
       }
       .price {
         display: flex;
+        flex-wrap: wrap;
         justify-content: space-between;
         align-items: center;
+        gap: 30px;
         margin: 30px 0 0;
         h4 {
           color: rgba(205, 70, 49, 1);
@@ -569,6 +730,11 @@ header {
       z-index: -1;
     }
   }
+  .vector__bottom {
+    @include tablette {
+      bottom: -3%;
+    }
+  }
 }
 // section CTA
 .cta {
@@ -596,6 +762,9 @@ header {
       border-radius: 8px;
       background: $bg__color;
       position: relative;
+      @include tablette {
+        width: 100%;
+      }
       h4 {
         font-size: 14px;
         font-weight: 700;
@@ -629,6 +798,11 @@ header {
         justify-content: space-between;
         align-items: center;
         margin: 10px 0 0;
+        // border: 2px solid red;
+        // @include tablette {
+        //   flex-direction: column;
+        //   gap: 10px;
+        // }
         &__content {
           display: flex;
           align-items: center;
@@ -665,6 +839,9 @@ header {
   }
   .vector__bottom {
     bottom: -8%;
+    @include tablette {
+      bottom: -5%;
+    }
   }
 }
 
@@ -691,6 +868,9 @@ header {
   }
   h1.title {
     width: 45%;
+    @include tablette {
+      width: 100%;
+    }
   }
   button.btn {
     position: relative;
@@ -714,8 +894,12 @@ header {
     left: -5%;
     bottom: -50%;
     width: 30%;
+
     img {
       width: 100%;
+    }
+    @include mac {
+      bottom: -10%;
     }
   }
   &__vector__right {
@@ -726,19 +910,27 @@ header {
     img {
       width: 100%;
     }
+    @include mac {
+      bottom: -10%;
+    }
   }
 }
 // section footer
 .footer {
   width: 100%;
   padding: 120px 10% 60px;
+  @include mobile() {
+    padding: 60px 10%;
+  }
   &__menu,
   &__copyright {
     display: flex;
     justify-content: space-between;
     align-items: flex-start;
+    // flex-wrap: wrap;
     gap: 10px;
   }
+
   hr {
     margin: 30px 0;
   }
@@ -748,6 +940,9 @@ header {
     justify-content: center;
     gap: 30px;
     width: 20%;
+    @include mobile() {
+      display: none;
+    }
     figure {
       display: flex;
       align-items: flex-end;
@@ -779,6 +974,9 @@ header {
   }
   .col4 {
     width: 30%;
+    @include mobile() {
+      display: none;
+    }
     .platform {
       list-style: none;
       display: flex;
@@ -803,6 +1001,11 @@ header {
   &__copyright {
     .marginspan {
       margin-left: 10px;
+    }
+  }
+  @include mobile() {
+    .footer__menu {
+      justify-content: space-around;
     }
   }
 }
